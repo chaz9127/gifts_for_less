@@ -1,24 +1,39 @@
-# README
+# Gifts For Less
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deploy Process
 
-Things you may want to cover:
+### Set up remotes
+```
+git remote -v
+origin	https://github.com/chaz9127/gifts_for_less.git (fetch)
+origin	https://github.com/chaz9127/gifts_for_less.git (push)
+production	https://git.heroku.com/gifts-for-less.git (fetch)
+production	https://git.heroku.com/gifts-for-less.git (push)
+staging	https://git.heroku.com/gifts-for-less-staging.git (fetch)
+staging	https://git.heroku.com/gifts-for-less-staging.git (push)
+```
 
-* Ruby version
+### Push to staging
 
-* System dependencies
+```
+git push origin development
 
-* Configuration
+git checkout staging
 
-* Database creation
+git merge development
 
-* Database initialization
+git push origin staging
 
-* How to run the test suite
+git push staging staging:master
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Push to Production
+```
+git checkout master
 
-* Deployment instructions
+git merge staging
 
-* ...
+git push origin master
+
+git push production master:master
+```
