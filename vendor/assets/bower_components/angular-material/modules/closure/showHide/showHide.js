@@ -1,11 +1,11 @@
 /*!
- * AngularJS Material Design
+ * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.4
+ * v1.1.0-rc4-master-c26842a
  */
-goog.provide('ngmaterial.components.showHide');
-goog.require('ngmaterial.core');
+goog.provide('ng.material.components.showHide');
+goog.require('ng.material.core');
 /**
  * @ngdoc module
  * @name material.components.showHide
@@ -13,7 +13,7 @@ goog.require('ngmaterial.core');
 
 // Add additional handlers to ng-show and ng-hide that notify directives
 // contained within that they should recompute their size.
-// These run in addition to AngularJS's built-in ng-hide and ng-show directives.
+// These run in addition to Angular's built-in ng-hide and ng-show directives.
 angular.module('material.components.showHide', [
   'material.core'
 ])
@@ -22,7 +22,7 @@ angular.module('material.components.showHide', [
 
 
 function createDirective(name, targetValue) {
-  return ['$mdUtil', '$window', function($mdUtil, $window) {
+  return ['$mdUtil', function($mdUtil) {
     return {
       restrict: 'A',
       multiElement: true,
@@ -30,21 +30,12 @@ function createDirective(name, targetValue) {
         var unregister = $scope.$on('$md-resize-enable', function() {
           unregister();
 
-          var node = $element[0];
-          var cachedTransitionStyles = node.nodeType === $window.Node.ELEMENT_NODE ?
-            $window.getComputedStyle(node) : {};
-
           $scope.$watch($attr[name], function(value) {
             if (!!value === targetValue) {
               $mdUtil.nextTick(function() {
                 $scope.$broadcast('$md-resize');
               });
-
-              var opts = {
-                cachedTransitionStyles: cachedTransitionStyles
-              };
-
-              $mdUtil.dom.animator.waitTransitionEnd($element, opts).then(function() {
+              $mdUtil.dom.animator.waitTransitionEnd($element).then(function() {
                 $scope.$broadcast('$md-resize');
               });
             }
@@ -54,5 +45,4 @@ function createDirective(name, targetValue) {
     };
   }];
 }
-
-ngmaterial.components.showHide = angular.module("material.components.showHide");
+ng.material.components.showHide = angular.module("material.components.showHide");
