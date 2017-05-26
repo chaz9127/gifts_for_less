@@ -33,5 +33,4 @@ Rails.application.configure do
     }
   }
 
-  binding.pry
 end

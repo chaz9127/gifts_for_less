@@ -1,4 +1,4 @@
-.item-card {
+.product-card {
   margin: 0px 0px 35px auto;
   @include grid-media($x-small-grid){
     @include grid-column(10);
@@ -15,11 +15,15 @@
   }
 }
 
-.item-description {
+.product-image {
+  cursor: pointer;
+}
+
+.product-description {
   height: 75px;
   overflow: auto;
 }
 
-.item-price {
+.product-price {
   font-size: 21px;
 }

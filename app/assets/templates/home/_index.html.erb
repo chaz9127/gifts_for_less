@@ -19,11 +19,8 @@
           <md-input-container class="md-block" flex-gt-sm>
             <label class="filter-label">Sort By</label>
             <md-select ng-model="selectedSort">
-              <md-option value="newest">
-                Newest
-              </md-option>
-              <md-option value="popular">
-                Most Popular
+              <md-option ng-repeat="sorts in sort" value="newest">
+                {{sort}}
               </md-option>
             </md-select>
           </md-input-container>
@@ -50,22 +47,20 @@
 
 <div class="outer-container">
   <section class="container">
-    <!-- <md-content> -->
-      <md-card ng-repeat="item in items" class="item-card">
-        <img ng-src="{{item.image}}" class="md-card-image" alt="Washed Out">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">{{item.title}}</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <p class="item-description" ng-bind="item.description" data-ellipsis></p>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button md-no-ink class="md-primary item-price">{{item.price | currency}}</md-button>
-          <md-button class="md-raised md-primary">View This</md-button>
-        </md-card-actions>
-      </md-card>
-    <!-- </md-content> -->
+    <md-card ng-repeat="product in products" class="product-card">
+      <img ng-src="{{product.image_url}}" class="md-card-image product-image" alt="{{product.name}}" ng-click="goTo(product.affiliate_link)">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{product.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p class="product-description" ng-bind="product.description" data-ellipsis></p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button md-no-ink class="md-primary product-price">{{product.price/100 | currency}}</md-button>
+        <a ng-href="{{product.affiliate_link}}"><md-button class="md-raised md-primary">View This</md-button></a>
+      </md-card-actions>
+    </md-card>
   </section>
 </div>
