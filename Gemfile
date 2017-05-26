@@ -28,6 +28,10 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 
+group :production, :staging do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem "better_errors"
   gem 'byebug', platform: :mri
