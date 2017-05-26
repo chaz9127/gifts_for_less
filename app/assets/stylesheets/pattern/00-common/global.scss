@@ -7,16 +7,25 @@
 
 ///
 
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
 $x-large-grid: (
-  media: 1200px
+  columns: 12,
+  gutter: 45px,
+  media: 1200px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr
 );
 
 $large-grid: (
-  media: 1020px
+  media: 860px
 );
 
 $medium-grid: (
-  media: 768px
+  media: 650px
 );
 
 $small-grid: (
@@ -34,18 +43,18 @@ $x-small-grid: (
   padding: 0px;
 }
 
-.test {
-  border: 1px black solid;
-  @include grid-column(3);
-}
-
 /// Sticky Footer - https://css-tricks.com/couple-takes-sticky-footer/
 html, body {
   height: 100%;
   margin: 0;
 }
+
 .container {
+  @include grid-container;
+  margin: 0 auto;
+  margin-top: 20px;
   min-height: 100%;
+  max-width: 960px;
 
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */

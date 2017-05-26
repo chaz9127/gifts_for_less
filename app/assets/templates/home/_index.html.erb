@@ -1,4 +1,59 @@
-<div class="test">
-  <h1>Future home of Gifts For Less</h1>
-  <md-button class="md-raised">{{state}}</md-button>
+<nav class="home-nav">
+  <ul>
+    <li class="logo">
+      <a href=""/></a>
+    </li>
+    <li class="filter">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Holidays</label>
+        <md-select ng-model="selectedHoliday">
+          <md-option ng-repeat="holiday in holidays" value="{{holiday}}">
+            {{holiday}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </li>
+    <li class="filter">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Sort By</label>
+        <md-select ng-model="selectedSort">
+          <md-option value="newest">
+            Newest
+          </md-option>
+          <md-option value="popular">
+            Most Popular
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </li>
+  </ul>
+</nav>
+<div class="slider">
+  <md-slider-container>
+    <md-slider flex="" min="0" max="100" ng-model="price" aria-label="price">
+    </md-slider>
+      <span class="slider-description">
+        {{price}} or less
+      </span>
+  </md-slider-container>
 </div>
+
+  <!-- <md-content> -->
+    <md-card ng-repeat="item in items" class="item-card">
+      <img src="https://material.angularjs.org/latest/img/washedout.png" class="md-card-image" alt="Washed Out">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{item.title}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>
+          {{item.description}}
+        </p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-link>{{price | currency}}</md-link>
+        <md-button>View This</md-button>
+      </md-card-actions>
+    </md-card>
+  <!-- </md-content> -->

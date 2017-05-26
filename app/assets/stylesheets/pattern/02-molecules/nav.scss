@@ -1,0 +1,30 @@
+.home-nav {
+  @include grid-column(12);
+
+  ul {
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+
+      &.logo {
+        float: left;
+        width: 150px;
+        height: 50px;
+        border: 1px solid black;
+      }
+
+      &.filter {
+        float: right;
+        max-width: 200px;
+        @include grid-media($x-small-grid){
+          margin-left: 20px;
+        }
+
+        @include grid-media($medium-grid){
+          margin-left: 35px;
+        }
+      }
+    }
+  }
+}

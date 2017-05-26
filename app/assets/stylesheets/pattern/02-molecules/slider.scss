@@ -1,0 +1,18 @@
+.slider {
+  @include grid-media($x-small-grid){
+    @include grid-column(12);
+  }
+
+  @include grid-media($medium-grid){
+    @include grid-column(8);
+    @include grid-push(2);
+  }
+
+  .slider-description {
+    max-width: none;
+  }
+
+  md-slider .md-thumb{
+    top: -9px;
+  }
+}
