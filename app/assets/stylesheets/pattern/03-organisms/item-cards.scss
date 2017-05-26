@@ -1,5 +1,5 @@
 .item-card {
-  margin: 0px 0px 0px auto;
+  margin: 0px 0px 35px auto;
   @include grid-media($x-small-grid){
     @include grid-column(10);
     @include grid-push(1);
@@ -13,4 +13,13 @@
   @include grid-media($large-grid){
     @include grid-column(4);
   }
+}
+
+.item-description {
+  height: 75px;
+  overflow: auto;
+}
+
+.item-price {
+  font-size: 21px;
 }

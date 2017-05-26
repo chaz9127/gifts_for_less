@@ -1,7 +1,7 @@
 <nav class="home-nav">
   <ul>
     <li class="logo">
-      <a href=""/></a>
+      <a href=""/>Gifts For Less</a>
     </li>
     <li class="filter">
       <md-input-container class="md-block" flex-gt-sm>
@@ -47,13 +47,11 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-content>
-        <p>
-          {{item.description}}
-        </p>
+        <p class="item-description" ng-bind="item.description" data-ellipsis></p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
-        <md-link>{{price | currency}}</md-link>
-        <md-button>View This</md-button>
+        <md-button md-no-ink class="md-primary item-price">{{item.price | currency}}</md-button>
+        <md-button class="md-raised md-primary">View This</md-button>
       </md-card-actions>
     </md-card>
   <!-- </md-content> -->

@@ -3,7 +3,8 @@
 angular.module('GiftsForLess', [
   'ui.router.compat',
   'templates',
-  'ngMaterial'
+  'ngMaterial',
+  'dibari.angular-ellipsis'
 ]).config(configGiftsForLess);
 
 configGiftsForLess.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$locationProvider'];

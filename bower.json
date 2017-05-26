@@ -1,25 +1,26 @@
 {
-   "name": "gifts_for_less",
-   "version": "1.0.0",
-   "dependencies": {
-     "jquery": "~2.2.0",
-     "angular": "~1.5.3",
-     "angular-route": "~1.5.3",
-     "angular-resource": "~1.5.3",
-     "angular-ui-router": "~0.2.18",
-     "angular-aria": "~1.5.3",
-     "angular-animate": "~1.5.3",
-     "angular-material": "~1.0.9",
-     "angular-scroll": "1.0.0"
-   },
-   "resolutions": {
-     "angular": "~1.5.3"
-   },
-   "ignore": [
-     "**/.*",
-     "node_modules",
-     "bower_components",
-     "test",
-     "tests"
-   ]
- }
+  "name": "gifts_for_less",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "angular": "~1.5.3",
+    "angular-route": "~1.5.3",
+    "angular-resource": "~1.5.3",
+    "angular-ui-router": "~0.2.18",
+    "angular-aria": "~1.5.3",
+    "angular-animate": "~1.5.3",
+    "angular-material": "~1.0.9",
+    "angular-scroll": "1.0.0",
+    "angular-ellipsis": "^0.1.7"
+  },
+  "resolutions": {
+    "angular": "~1.5.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

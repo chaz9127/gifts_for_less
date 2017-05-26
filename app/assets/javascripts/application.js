@@ -22,6 +22,7 @@
 //= require angular-aria
 //= require angular-animate
 //= require angular-material
+//= require angular-ellipsis
 
 //= require_tree ../templates
 
