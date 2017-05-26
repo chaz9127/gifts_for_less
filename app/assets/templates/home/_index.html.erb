@@ -39,7 +39,7 @@
       <span class="slider-description">
         $0.00
       </span>
-      <md-slider flex="" min="0" max="100" ng-model="price" aria-label="price">
+      <md-slider flex="" step="5" min="0" max="100" ng-model="price" aria-label="price">
       </md-slider>
         <span class="slider-description">
           {{price | currency}} <span ng-if="price >= 100">+</span>

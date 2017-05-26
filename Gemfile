@@ -33,7 +33,9 @@ group :production, :staging do
 end
 
 group :development, :test do
-  gem "better_errors"
+  gem 'better_errors'
+  gem 'pry'
+  gem 'binding_of_caller'
   gem 'byebug', platform: :mri
 end
 
