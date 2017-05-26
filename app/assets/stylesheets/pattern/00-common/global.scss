@@ -5,6 +5,19 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+.logo {
+  font-family: 'Comfortaa', cursive;
+  font-size: 24px;
+
+  .secondary {
+    letter-spacing: 15px;
+    font-weight: bold;
+    color: rgb(83,109,254);
+  }
+}
+
 ///
 
 $neat-grid: (
@@ -52,7 +65,6 @@ html, body {
 .container {
   @include grid-container;
   margin: 0 auto;
-  margin-top: 20px;
   min-height: 100%;
   max-width: 960px;
 
@@ -63,4 +75,10 @@ html, body {
 .footer,
 .push {
   height: 65px;
+}
+
+
+///
+.md-track-container .md-track {
+  // background-color: rgba(255,255,255,0.7)
 }

@@ -7,14 +7,18 @@ angular.module('GiftsForLess', [
   'dibari.angular-ellipsis'
 ]).config(configGiftsForLess);
 
-configGiftsForLess.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$locationProvider'];
+configGiftsForLess.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', '$locationProvider', '$mdThemingProvider'];
 
-function configGiftsForLess($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
+function configGiftsForLess($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider, $mdThemingProvider) {
 
   $urlRouterProvider.otherwise('/');
   $locationProvider.html5Mode(true);
   $urlMatcherFactoryProvider.caseInsensitive(true);
   $urlMatcherFactoryProvider.strictMode(false);
+
+  $mdThemingProvider.theme('default')
+    .primaryPalette('amber')
+    .accentPalette('indigo');
 
   $stateProvider
     .state('home', {
