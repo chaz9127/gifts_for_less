@@ -37,6 +37,7 @@ group :development, :test do
   gem 'pry'
   gem 'binding_of_caller'
   gem 'byebug', platform: :mri
+  gem 'figaro'
 end
 
 group :development do
