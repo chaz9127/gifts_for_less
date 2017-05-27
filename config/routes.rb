@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :web do
       resources :products, only: [:index]
+      resources :tags, only: [:index]
     end
   end
 end

@@ -1,11 +1,11 @@
 angular.module('GiftsForLess')
   .controller('HomeCtrl', HomeCtrl);
 
-HomeCtrl.$inject = ['$scope', '$state', 'ProductsAPI'];
+HomeCtrl.$inject = ['$scope', '$state', 'ProductsAPI', 'TagsAPI'];
 
-function HomeCtrl($scope, $state, ProductsAPI) {
-  $scope.holidays = ['All', 'Mother\'s Day', 'Father\'s Day'];
+function HomeCtrl($scope, $state, ProductsAPI, TagsAPI) {
   $scope.sorts = ['Newest', 'Price: Low to High', 'Price: High to Low'];
+  $scope.holidays = ['All'];
   $scope.selectedHoliday = 'all';
   $scope.price = 15;
   $scope.selectedSort = 'newest';
@@ -25,14 +25,17 @@ function HomeCtrl($scope, $state, ProductsAPI) {
   };
 
   $scope.displayProducts = function() {
-    var params = {
-        params: {
-          holiday: $scope.selectedHoliday
-        }
-    };
-
+    var params = { params: { holiday: $scope.selectedHoliday } };
     ProductsAPI.index(params).then(function(resp){
       $scope.products = resp.data.products;
+    })
+  }
+
+  $scope.displayHolidays = function() {
+    var params = { params: { list: $scope.selectedHoliday } };
+    TagsAPI.index(params).then(function(resp){
+      console.log($scope.holidays.concat(resp.data.tags));
+      $scope.holidays = $scope.holidays.concat(resp.data.tags);
     })
   }
 
@@ -51,8 +54,7 @@ function HomeCtrl($scope, $state, ProductsAPI) {
     return product[sortBy];
   }
 
-
+  $scope.displayHolidays();
   $scope.displayProducts();
-
 
 }
