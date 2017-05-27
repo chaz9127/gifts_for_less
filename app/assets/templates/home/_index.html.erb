@@ -9,7 +9,7 @@
           <md-input-container class="md-block" flex-gt-sm>
             <label class="filter-label">Holidays</label>
             <md-select ng-model="selectedHoliday">
-              <md-option ng-repeat="holiday in holidays" value="{{holiday}}">
+              <md-option ng-repeat="holiday in holidays" value="{{holiday | paramertize}}">
                 {{holiday}}
               </md-option>
             </md-select>
@@ -19,7 +19,7 @@
           <md-input-container class="md-block" flex-gt-sm>
             <label class="filter-label">Sort By</label>
             <md-select ng-model="selectedSort">
-              <md-option ng-repeat="sorts in sort" value="newest">
+              <md-option ng-repeat="sort in sorts" value="{{sort | paramertize}}">
                 {{sort}}
               </md-option>
             </md-select>
@@ -47,7 +47,7 @@
 
 <div class="outer-container">
   <section class="container">
-    <md-card ng-repeat="product in products" class="product-card">
+    <md-card ng-repeat="product in products | filter: priceRangeFilter | orderBy:dynamicOrder:reverseOrder" class="product-card">
       <img ng-src="{{product.image_url}}" class="md-card-image product-image" alt="{{product.name}}" ng-click="goTo(product.affiliate_link)">
       <md-card-title>
         <md-card-title-text>
