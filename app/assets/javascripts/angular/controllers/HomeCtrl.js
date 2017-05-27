@@ -34,7 +34,6 @@ function HomeCtrl($scope, $state, ProductsAPI, TagsAPI) {
   $scope.displayHolidays = function() {
     var params = { params: { list: $scope.selectedHoliday } };
     TagsAPI.index(params).then(function(resp){
-      console.log($scope.holidays.concat(resp.data.tags));
       $scope.holidays = $scope.holidays.concat(resp.data.tags);
     })
   }
