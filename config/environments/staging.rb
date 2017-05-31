@@ -1,33 +1,36 @@
 Rails.application.configure do
-  config.cache_classes = true
-  config.eager_load = true
-  config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.assets.js_compressor = :uglifier
+  config.cache_classes = false
+  config.eager_load = false
+  config.consider_all_requests_local = true
 
-  config.assets.compile = false
-  config.log_level = :debug
-  config.log_tags = [ :request_id ]
-  config.action_mailer.perform_caching = false
-  config.i18n.fallbacks = true
-  config.active_support.deprecation = :notify
-  config.log_formatter = ::Logger::Formatter.new
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+    config.action_controller.perform_caching = true
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
+    config.cache_store = :memory_store
+    config.public_file_server.headers = {
+      'Cache-Control' => 'public, max-age=172800'
+    }
+  else
+    config.action_controller.perform_caching = false
+
+    config.cache_store = :null_store
   end
-  config.active_record.dump_schema_after_migration = false
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_caching = false
+  config.active_support.deprecation = :log
+  config.active_record.migration_error = :page_load
+  config.assets.debug = true
+  config.assets.quiet = true
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.paperclip_defaults = {
     storage: :s3,
     s3_region: ENV['AWS_REGION'],
     s3_credentials: {
-      bucket: 'prod-gifts-for-less-products',
+      bucket: 'dev-gifts-for-less-products',
       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
 end
