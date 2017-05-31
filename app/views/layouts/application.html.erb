@@ -13,8 +13,7 @@
   <body>
     <%= yield %>
   </body>
-
-<% if Rails.env.production? %>
+<% if !ENV['NOT_PRODUCTION'] %>
 <!-- Begin Inspectlet Embed Code -->
   <script type="text/javascript" id="inspectletjs">
     window.__insp = window.__insp || [];
