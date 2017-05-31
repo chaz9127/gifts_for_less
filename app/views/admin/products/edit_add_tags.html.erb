@@ -1,0 +1,17 @@
+<h2>Add Tags</h2>
+
+<%= form_tag add_tags_admin_product_path, method: :put do |f| %>
+  <table style="width: auto">
+    <tr>
+      <td><label>Holiday: </label></td>
+      <td><%= text_field(:update_params, :holiday) %></td>
+    </tr>
+    <tr>
+      <td><label>Genre: </label></td>
+      <td><%= text_field(:update_params, :genre) %></td>
+    </tr>
+  </table>
+  <br>
+  <%= hidden_field(:update_params, :id, value: @product.id) %>
+  <%= submit_tag 'Add Tag' %>
+<% end %>
