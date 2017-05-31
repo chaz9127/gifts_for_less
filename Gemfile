@@ -28,13 +28,12 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 
-group :production, :staging do
+group :production do
   gem 'rails_12factor'
 end
 
-group :development, :test, :staging do
+group :development, :test do
   gem 'better_errors'
-  gem 'listen', '~> 3.0.5'
   gem 'pry'
   gem 'binding_of_caller'
   gem 'byebug', platform: :mri
@@ -42,6 +41,7 @@ group :development, :test, :staging do
 end
 
 group :development do
+  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
