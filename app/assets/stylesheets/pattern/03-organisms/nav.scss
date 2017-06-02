@@ -19,28 +19,28 @@
         float: left;
         width: 150px;
         height: 50px;
+
+        a, a:hover {
+          text-decoration: none;
+          color: white;
+        }
       }
 
       &.filter {
         float: right;
-        max-width: 200px;
         @include grid-media($x-small-grid){
           margin-left: 20px;
+          max-width: 50px;
         }
 
-        @include grid-media($medium-grid){
+        @include grid-media($small-grid){
           margin-left: 35px;
+          max-width: 200px;
         }
 
-        // .filter-label {
-        //   color: rgba(255, 255, 255, .5);
-        // }
-        //
-        // .md-input-focused {
-        //   .md-text {
-        //     color: rgba(255, 255, 255, 1);
-        //
-        // }
+        .md-select-value {
+          min-width: 0px;
+        }
       }
     }
   }

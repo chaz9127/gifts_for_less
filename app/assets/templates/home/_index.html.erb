@@ -3,12 +3,12 @@
     <nav class="home-nav">
       <ul>
         <li class="logo">
-          <a href=""/>Gifts For <br> <span class="secondary">Less</span></a>
+          <a href="/">Gifts For <br> <span class="secondary">Less</span></a>
         </li>
         <li class="filter">
           <md-input-container class="md-block" flex-gt-sm>
             <label class="filter-label">Holidays</label>
-            <md-select ng-model="selectedHoliday">
+            <md-select ng-model="selectedHoliday" class="select-container">
               <md-option ng-repeat="holiday in holidays" value="{{holiday | paramertize}}">
                 {{holiday}}
               </md-option>
@@ -18,7 +18,7 @@
         <li class="filter">
           <md-input-container class="md-block" flex-gt-sm>
             <label class="filter-label">Sort By</label>
-            <md-select ng-model="selectedSort">
+            <md-select ng-model="selectedSort" class="select-container">
               <md-option ng-repeat="sort in sorts" value="{{sort | paramertize}}">
                 {{sort}}
               </md-option>
@@ -49,9 +49,9 @@
   <section class="container">
     <md-card ng-repeat="product in products | filter: priceRangeFilter | orderBy:dynamicOrder:reverseOrder" class="product-card">
       <img ng-src="{{product.image_url}}" class="md-card-image product-image" alt="{{product.name}}" ng-click="goTo(product.affiliate_link)">
-      <md-card-title>
+      <md-card-title class="product-name-container">
         <md-card-title-text>
-          <span class="md-headline">{{product.name}}</span>
+          <span class="md-headline product-name">{{product.name}}</span>
         </md-card-title-text>
       </md-card-title>
       <md-card-content>

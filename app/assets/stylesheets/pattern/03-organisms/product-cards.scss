@@ -19,6 +19,25 @@
   cursor: pointer;
 }
 
+.product-name-container {
+  height: 65px;
+}
+
+.product-name {
+  @include grid-media($x-small-grid){
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  @include grid-media($small-grid){
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+}
+
 .product-description {
   height: 75px;
   overflow: auto;
